@@ -1,0 +1,37 @@
+#! /bin/bash 
+
+if command -v dialog >/dev/null 2>&1 ; then
+    continue
+else
+    echo "Linux dialog not installed"
+    exit
+fi
+
+shopt -s nullglob
+
+if [ ! $# -eq 0 ]
+then
+	files=( *${1}* )
+else 
+	files=(*)
+fi
+shopt -u nullglob
+IFS='
+'
+ls_params=()
+length=${#files[@]}
+lines=$(tput lines)
+cols=$(tput cols)
+sub_lines=$((lines-10))
+sub_cols=$((cols-30))
+for ((i=0;i<${#files[@]};i++))
+do
+	sub_arr=( "${files[$i]}" "${files[$i]}" off )
+	ls_params+=( ${sub_arr[@]} )
+done
+exec 3>&1
+filelist=$( dialog --stdout --buildlist "Select Files" \
+		$sub_lines $sub_cols 20 ${ls_params[@]} \
+		2>&1 1>&3 )
+
+
