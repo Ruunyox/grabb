@@ -1,7 +1,7 @@
 # GRABB
 
 <p align=center>
-<img src="grabb_image.png" width=600px />
+<img src="grabb_image.png" width=400px />
 <p/>
 
 ---
