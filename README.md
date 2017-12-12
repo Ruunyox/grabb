@@ -1,5 +1,9 @@
 # GRABB
 
+<p align=center>
+<img src="grabb_image.png" />
+<p/>
+
 ---
 
 `grabb` is a simple `BASH` script that uses linux `dialog` to assemble a file list for
