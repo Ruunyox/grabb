@@ -22,8 +22,8 @@ ls_params=()
 length=${#files[@]}
 lines=$(tput lines)
 cols=$(tput cols)
-sub_lines=$((lines-10))
-sub_cols=$((cols-30))
+sub_lines=$((lines-5))
+sub_cols=$((cols-10))
 for ((i=0;i<${#files[@]};i++))
 do
 	sub_arr=( "${files[$i]}" "${files[$i]}" off )
@@ -33,5 +33,3 @@ exec 3>&1
 filelist=$( dialog --stdout --buildlist "Select Files" \
 		$sub_lines $sub_cols 20 ${ls_params[@]} \
 		2>&1 1>&3 )
-
-
