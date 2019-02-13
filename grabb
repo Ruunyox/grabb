@@ -30,6 +30,6 @@ do
 	ls_params+=( ${sub_arr[@]} )
 done
 exec 3>&1
-filelist=$( dialog --title "Select Files" --stdout --buildlist "" \
+filelist=$( dialog --title --reorder "Select Files" --stdout --buildlist "" \
 		$sub_lines $sub_cols $((sub_lines - 4)) ${ls_params[@]} \
 		2>&1 1>&3 )
